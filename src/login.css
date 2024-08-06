@@ -1,0 +1,90 @@
+/* Estilos generales para el contenedor del formulario */
+.Login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #f3f4f6, #e2e3e5);
+  }
+  
+  /* Estilos para el formulario */
+  .Login form {
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: 100%;
+    max-width: 360px;
+    box-sizing: border-box;
+  }
+  
+  /* Estilos para el título */
+  .Login h1 {
+    margin-bottom: 24px;
+    font-size: 28px;
+    text-align: center;
+    color: #333;
+  }
+  
+  /* Estilos para los campos de entrada */
+  .Login input {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+  }
+  
+  .Login input:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+  }
+  
+  /* Estilos para el botón de inicio de sesión */
+  .Login button[type="submit"] {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .Login button[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Estilos para el botón de registro */
+  .toggle-link {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .toggle-link button {
+    border: none;
+    background: none;
+    color: #007bff;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+  }
+  
+  .toggle-link button:hover {
+    color: #0056b3;
+  }
+  
+  /* Estilos para mensajes de error o éxito */
+  .Login .message {
+    text-align: center;
+    color: #d9534f;
+    margin-top: 10px;
+  }
+  
