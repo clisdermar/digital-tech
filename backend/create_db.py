@@ -1,2 +1,5 @@
-from app import db
-db.create_all()
+from app import app, db
+
+with app.app_context():
+    db.create_all()
+    print("Tables created successfully.")

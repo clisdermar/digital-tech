@@ -4,6 +4,7 @@ import Header from './Header';
 import Post from './Post';
 import Login from './login';
 import Register from './register';
+import PostModal from './postModal'; // Importa el nuevo componente Modal
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
       caption: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
     }
   ]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     localStorage.setItem('users', JSON.stringify(users));
@@ -42,7 +44,6 @@ function App() {
       alert("Username already exists. Please choose a different username.");
       return;
     }
-    console.log("User registered:", username);
     const newUser = { name, surname, username, password };
     const updatedUsers = [...users, newUser];
     setUsers(updatedUsers);
@@ -53,7 +54,6 @@ function App() {
   const handleLogin = (username, password) => {
     const user = users.find(user => user.username === username && user.password === password);
     if (user) {
-      console.log("User logged in:", username);
       setUser(username);
       setIsLoggedIn(true);
     } else {
@@ -61,30 +61,36 @@ function App() {
     }
   };
 
-  const toggleRegister = () => {
-    setIsRegistering(!isRegistering);
+  const handleAddPost = (imageSrc, caption) => {
+    const newPost = { imageSrc, username: user, caption };
+    setPosts([newPost, ...posts]); // Agregar al inicio de la lista
   };
-
-  console.log("App rendered. isLoggedIn:", isLoggedIn);
 
   return (
     <div className="App">
       {isLoggedIn ? (
         <>
           <Header />
+          <button onClick={() => setIsModalOpen(true)}>Create New Post</button>
           {posts.map((post, index) => (
             <Post 
               key={index}
               imageSrc={post.imageSrc}
               username={post.username}
               caption={post.caption}
+              currentUsername={user}
             />
           ))}
+          <PostModal
+            isOpen={isModalOpen}
+            onClose={() => setIsModalOpen(false)}
+            onAddPost={handleAddPost}
+          />
         </>
       ) : isRegistering ? (
-        <Register onRegister={handleRegister} onToggle={toggleRegister} />
+        <Register onRegister={handleRegister} onToggle={() => setIsRegistering(!isRegistering)} />
       ) : (
-        <Login onLogin={handleLogin} onToggle={toggleRegister} />
+        <Login onLogin={handleLogin} onToggle={() => setIsRegistering(!isRegistering)} />
       )}
     </div>
   );
