@@ -1,0 +1,43 @@
+.header{
+    background-color: rgb(238, 235, 235);
+    padding: 5px;
+    border-bottom: 1px solid lightgray;
+    object-fit: contain;
+    text-align: left;
+    color: rgb(178, 177, 174);
+    display: flex; 
+    align-items: center;
+    gap: 200px;
+    border-bottom: 2px solid rgb(195, 195, 195);
+    padding-left: 30px;
+    position: sticky; 
+    top:0;
+    z-index: 999;
+    cursor: pointer;
+    
+}
+
+.header input {
+    padding: 10px; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    width: 200px;
+    
+}
+
+.search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-container i {
+    position: absolute;
+    left: 10px; /* Espacio desde el borde izquierdo del contenedor */
+    color: #999; /* Color del ícono */
+}
+
+.search-container input {
+    padding-left: 30px; /* Espacio suficiente para el ícono */
+    width: 200px; /* Ajusta el ancho según sea necesario */
+}

@@ -1,11 +1,15 @@
 from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app) 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
+
+
 
 likes = db.Table('likes',
     db.Column('user_id', db.Integer, db.ForeignKey('user.id'), primary_key=True),
@@ -33,7 +37,7 @@ class Post(db.Model):
 
 @app.route('/')
 def index():
-    return "Hello, World!"
+    return "Digital Teach Inc!"
 
 @app.route('/posts', methods=['POST'])
 def add_post():
