@@ -12,7 +12,7 @@ class Post extends Component {
           </div>
 
           <img className="post_image" alt={this.props.caption} src={this.props.imageSrc} />
-
+          <i className="fa-regular fa-heart fa-2x"></i>
           <h4 className="post_descripcion"><strong>{this.props.caption}</strong></h4>
         </div>
       </div>
