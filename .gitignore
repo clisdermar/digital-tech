@@ -1,23 +1,36 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pdb
+*.sqlite3
 
-# dependencies
-/node_modules
-/.pnp
-.pnp.js
+# Virtual environment
+venv/
+env/
+ENV/
 
-# testing
-/coverage
+# Flask
+instance/
+*.db
+*.sqlite3
 
-# production
-/build
+# Jupyter Notebook
+.ipynb_checkpoints
 
-# misc
+# VS Code
+.vscode/
+
+# PyCharm
+.idea/
+
+# MacOS
 .DS_Store
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
 
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+# Logs
+*.log
+
+# dotenv
+.env
+node_modules
